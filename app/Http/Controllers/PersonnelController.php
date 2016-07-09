@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class PersonnelController extends Controller
@@ -24,15 +25,11 @@ class PersonnelController extends Controller
         foreach ($personnel->keys() as $key) {
             array_push($personnel_data, $personnel->get($key));
         }
-        var_dump($personnel_data);
-        var_dump(Personnel::$csvfilename);
-        echo "<pre>";
 
         try {
-            $personnel_file = fopen(Personnel::$csvfilename,"w");
-            var_dump($personnel_file);
+            $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
         }catch (FileException $e) {
-            Log::error("Unable to read file");
+            Log::error("File Exception Occured", $e);
         }
 
         // TODO : handle storing personnel records
