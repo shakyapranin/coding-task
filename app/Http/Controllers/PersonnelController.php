@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Laracasts\Flash\Flash;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class PersonnelController extends Controller
@@ -42,7 +43,10 @@ class PersonnelController extends Controller
 
         }catch (FileException $e) {
             Log::error("File Exception Occurred", $e);
+
         }
+        Flash::message('Personnel data saved!');
+        return redirect()->route('storePersonnel');
 
         // TODO : handle storing personnel records to database if needed
     }

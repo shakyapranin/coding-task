@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "5.2.*",
         "logentries/logentries": "^1.6",
-        "logentries/logentries-monolog-handler": "^2.0"
+        "logentries/logentries-monolog-handler": "^2.0",
+        "laracasts/flash": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
