@@ -23,6 +23,10 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        .top-buffer{
+            margin-top: 20px;
+        }
     </style>
     @section('styles')
     @show
