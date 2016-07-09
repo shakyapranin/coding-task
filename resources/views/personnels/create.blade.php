@@ -8,7 +8,9 @@
                         Create Personnel
                     </div>
                     <div class="panel-body">
-
+                        {!! Form::open(array('url' => 'personnel')) !!}
+                        
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
