@@ -38,7 +38,7 @@
                             <div class="row top-buffer">
                                 <?php echo Form::label('phone', 'Phone *', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::text('phone', $personnel->phone, array('class' => 'form-control', 'required' => true));?>
+                                    <?php echo Form::text('phone', $personnel->phone, array('class' => 'form-control', 'id' => 'phone', 'required' => true));?>
                                 </div>
                             </div>
 
@@ -106,15 +106,29 @@
         $(document).ready(function(){
             $("#personnel-form").validate({
                 rules: {
-                    matches: "/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/",  // <-- no such method called "matches"!
-                    minlength:10,
-                    maxlength:10
+                    phone: {
+                        isValidPhoneNumber: true,
+                        minlength: 7,
+                        maxlength: 15,
+                    },
+
                 },
                 submitHandler: function(form) {
                     form.submit();
                 }
             });
             $("#date_of_birth").datepicker();
+
+            $.validator.addMethod('isValidPhoneNumber', checkValidPhoneNumber, 'Phone number is invalid.');
+            function checkValidPhoneNumber(value, element){
+                var filter = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+                if (filter.test(value)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
         });
     </script>
 @endsection
