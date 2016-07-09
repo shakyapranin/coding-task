@@ -18,3 +18,13 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => '', 'middleware' => ['auth']], function() {
+    Route::post('/personnel', ['uses' => 'PersonnelController@store', 'as' => 'storePersonnel']);
+
+    Route::get('/personnel', 'PersonnelController@create');
+    Route::get('/personnel/{id}', 'PersonnelController@single');
+    Route::get('/personnels', 'PersonnelController@index');
+
+    Route::delete('/personnels/{id}', 'PersonnelController@destroy');
+});
