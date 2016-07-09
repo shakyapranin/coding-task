@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -54,9 +57,9 @@
                             </div>
 
                             <div class="row">
-                                <?php echo Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label', 'id' => 'date_of_birth'));?>
+                                <?php echo Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::text('date_of_birth', $personnel->date_of_birth, array('class' => 'form-control'));?>
+                                    <?php echo Form::text('date_of_birth', $personnel->date_of_birth, array('class' => 'form-control', 'id' => 'date_of_birth'));?>
                                 </div>
                             </div>
 
@@ -106,7 +109,7 @@
                     form.submit();
                 }
             });
-            //$("#date_of_birth").datepicker('Y-m-d');
+            $("#date_of_birth").datepicker();
         });
     </script>
 @endsection
