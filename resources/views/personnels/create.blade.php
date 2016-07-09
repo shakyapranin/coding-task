@@ -9,11 +9,11 @@
                     </div>
                     <div class="panel-body">
                         @include('flash::message')
+
                         {!! Form::open(array('url' => 'personnel')) !!}
 
-                        <?php
-                        echo Form::model($personnel, array('route' => array('storePersonnel', $personnel->id)));
-                        ?>
+                        <?php echo Form::model($personnel, array('route' => array('storePersonnel', $personnel->id)));?>
+
                         <div class="form-group">
 
                             <div class="row">
