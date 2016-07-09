@@ -20,14 +20,14 @@
                         <div class="form-group">
 
                             <div class="row top-buffer">
-                                <?php echo Form::label('name', 'Name*', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('name', 'Name *', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
                                     <?php echo Form::text('name', $personnel->name, array('class' => 'form-control', 'required' => true));?>
                                 </div>
                             </div>
 
                             <div class="row top-buffer">
-                                <?php echo Form::label('gender', 'Gender*', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('gender', 'Gender *', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
                                     <?php echo Form::radio('gender', 'male', array('checked' => true));?> Male&nbsp;
                                     <?php echo Form::radio('gender', 'female');?> Female&nbsp;
@@ -36,14 +36,14 @@
                             </div>
 
                             <div class="row top-buffer">
-                                <?php echo Form::label('phone', 'Phone*', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('phone', 'Phone *', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
                                     <?php echo Form::text('phone', $personnel->phone, array('class' => 'form-control', 'required' => true));?>
                                 </div>
                             </div>
 
                             <div class="row top-buffer">
-                                <?php echo Form::label('email', 'Email*', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('email', 'Email *', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
                                     <?php echo Form::email('email', $personnel->email, array('class' => 'form-control', 'required' => true));?>
                                 </div>

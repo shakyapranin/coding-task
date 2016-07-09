@@ -27,6 +27,9 @@
         .top-buffer{
             margin-top: 20px;
         }
+        .error{
+            color: #880000;
+        }
     </style>
     @section('styles')
     @show
