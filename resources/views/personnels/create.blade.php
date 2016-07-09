@@ -25,9 +25,9 @@
                             <div class="row">
                                 <?php echo Form::label('gender', 'Gender', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::radio('name', 'male');?> Male
-                                    <?php echo Form::radio('name', 'female');?> Female
-                                    <?php echo Form::radio('name', 'other');?> Other
+                                    <?php echo Form::radio('gender', 'male');?> Male
+                                    <?php echo Form::radio('gender', 'female');?> Female
+                                    <?php echo Form::radio('gender', 'other');?> Other
                                 </div>
                             </div>
 
@@ -79,7 +79,7 @@
                                     <?php echo Form::select('preferred_mode_of_contact', $pmof_options, array('class' => 'form-control'));?>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <?php echo Form::submit('Save');?>

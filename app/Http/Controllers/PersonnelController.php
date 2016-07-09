@@ -6,6 +6,8 @@ use App\Personnel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 class PersonnelController extends Controller
 {
@@ -15,8 +17,22 @@ class PersonnelController extends Controller
           // TODO : handle listing of personnel records
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $personnel = $request->request; // Parameter Bag Object
+        $personnel_data = array();
+        foreach ($personnel->keys() as $key) {
+            array_push($personnel_data, $personnel->get($key));
+        }
+        var_dump($personnel_data);
+        var_dump(Personnel::$csvfilename);
+
+        try {
+
+        }catch (FileException $e) {
+            
+        }
+
         // TODO : handle storing personnel records
     }
 
