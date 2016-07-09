@@ -10,39 +10,39 @@
                     <div class="panel-body">
                         @include('flash::message')
 
-                        {!! Form::open(array('url' => 'personnel')) !!}
+                        {!! Form::open(array('url' => 'personnel', 'id' => 'personnel-form')) !!}
 
-                        <?php echo Form::model($personnel, array('route' => array('storePersonnel', $personnel->id)));?>
+                        <?php //echo Form::model($personnel, array('route' => array('storePersonnel', $personnel->id)));?>
 
                         <div class="form-group">
 
                             <div class="row">
-                                <?php echo Form::label('name', 'Name', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('name', 'Name*', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::text('name', $personnel->name, array('class' => 'form-control'));?>
+                                    <?php echo Form::text('name', $personnel->name, array('class' => 'form-control', 'required' => true));?>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <?php echo Form::label('gender', 'Gender', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('gender', 'Gender*', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::radio('gender', 'male');?> Male
+                                    <?php echo Form::radio('gender', 'male', array('checked' => true));?> Male
                                     <?php echo Form::radio('gender', 'female');?> Female
                                     <?php echo Form::radio('gender', 'other');?> Other
                                 </div>
                             </div>
 
                             <div class="row">
-                                <?php echo Form::label('phone', 'Phone', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('phone', 'Phone*', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::text('phone', $personnel->phone, array('class' => 'form-control'));?>
+                                    <?php echo Form::text('phone', $personnel->phone, array('class' => 'form-control', 'required' => true));?>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <?php echo Form::label('email', 'Email', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('email', 'Email*', array('class' => 'col-sm-3 control-label'));?>
                                 <div class="col-sm-6">
-                                    <?php echo Form::text('email', $personnel->email, array('class' => 'form-control'));?>
+                                    <?php echo Form::email('email', $personnel->email, array('class' => 'form-control', 'required' => true));?>
                                 </div>
                             </div>
 
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="row">
-                                <?php echo Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label'));?>
+                                <?php echo Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label', 'id' => 'date_of_birth'));?>
                                 <div class="col-sm-6">
                                     <?php echo Form::text('date_of_birth', $personnel->date_of_birth, array('class' => 'form-control'));?>
                                 </div>
@@ -94,4 +94,19 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    @parent
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            $("#personnel-form").validate({
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+            //$("#date_of_birth").datepicker('Y-m-d');
+        });
+    </script>
 @endsection
