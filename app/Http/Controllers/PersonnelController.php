@@ -6,7 +6,6 @@ use App\Personnel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -53,7 +52,7 @@ class PersonnelController extends Controller
 
     public function create()
     {
-        Log::info('Works well create');
+        Log::info('Works well');
         $personnel = new Personnel();
         return view('personnels/create')->with(['personnel'=>$personnel]);
     }
