@@ -117,7 +117,11 @@
                     form.submit();
                 }
             });
-            $("#date_of_birth").datepicker();
+            $("#date_of_birth").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1972:2011'
+            });
 
             $.validator.addMethod('isValidPhoneNumber', checkValidPhoneNumber, 'Phone number is invalid.');
             function checkValidPhoneNumber(value, element){
