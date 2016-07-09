@@ -6,8 +6,8 @@ use App\Personnel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\ParameterBag;
 
 class PersonnelController extends Controller
 {
@@ -26,11 +26,13 @@ class PersonnelController extends Controller
         }
         var_dump($personnel_data);
         var_dump(Personnel::$csvfilename);
+        echo "<pre>";
 
         try {
-
+            $personnel_file = fopen(Personnel::$csvfilename,"w");
+            var_dump($personnel_file);
         }catch (FileException $e) {
-            
+            Log::error("Unable to read file");
         }
 
         // TODO : handle storing personnel records
