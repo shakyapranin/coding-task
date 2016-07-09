@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Personnel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -21,7 +22,8 @@ class PersonnelController extends Controller
 
     public function create()
     {
-        return view('personnels/create');
+        $personnel = new Personnel();
+        return view('personnels/create')->with(['personnel'=>$personnel]);
     }
 
     public function single()
