@@ -6,6 +6,7 @@ use App\Personnel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Log;
 use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -39,7 +40,7 @@ class PersonnelController extends Controller
             $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
             $modified_file_content = $personnel_file.chr(10).$personnel_data;// Add new record to end.
             Storage::disk('csv')->put(Personnel::$csvfilename, $modified_file_content);
-            Log::info('Personnel data saved with token'. $personnel->get('_token'));
+            Log::info('Personnel data saved with token : '. $personnel->get('_token'));
 
         }catch (FileException $e) {
             Log::error("File Exception Occurred", $e);
@@ -52,7 +53,6 @@ class PersonnelController extends Controller
 
     public function create()
     {
-        Log::info('Works well');
         $personnel = new Personnel();
         return view('personnels/create')->with(['personnel'=>$personnel]);
     }
