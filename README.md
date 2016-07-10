@@ -8,7 +8,7 @@ This repository consists of demonstration for the fulfillment of tasks pre state
 3. [npm](https://www.npmjs.com/)
 4. Apache, Mysql and Php
    <h2>Linux</h2><br>
-   [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu
+   [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu)
    <h2>Mac</h2><br>
    [MAMP](https://www.mamp.info/en/)
    <h2>Windows</h2>
