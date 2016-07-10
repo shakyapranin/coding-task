@@ -20,7 +20,7 @@ build:
     - script:
         name: Migrate tables
         code: |-
-        php artisan migrate
+          php artisan migrate
 
     - script:
         name: Run phpunit
