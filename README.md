@@ -7,11 +7,11 @@ This repository consists of demonstration for the fulfillment of tasks pre state
 2. [Composer](https://getcomposer.org/)
 3. [npm](https://www.npmjs.com/)
 4. Apache, Mysql and Php
-   ## Linux
+   <h2>Linux</h2><br>
    [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu
-   ## Mac
+   <h2>Mac</h2><br>
    [MAMP](https://www.mamp.info/en/)
-   ## Windows
+   <h2>Windows</h2>
    [WAMP](http://www.wampserver.com/en/)
    [XAMP](https://www.apachefriends.org/index.html)
 5. PHP >= 5.5.9
@@ -19,33 +19,33 @@ This repository consists of demonstration for the fulfillment of tasks pre state
    PDO PHP Extension
    Mbstring PHP Extension
    Tokenizer PHP Extension
-   
+
 # Installation
 
-1. Clone the repository using : ##$ git clone {Repository_url}
+1. Clone the repository using : <h2>$ git clone {Repository_url}</h2>
 2. Create a copy of .env.example and save as .env in the root folder.
 3. Create a database and adjust settings in the .env file.
-4. Migrate tables using : ## $ php artisan migrate
-5. Install node dependencies using : ## $ npm install
-6. Update composer dependencies using : ## $ composer update
-7. Edit .env for logentries : ## LOGENTRIES_TOKEN={your_logentires_key}
+4. Migrate tables using : <h2>$ php artisan migrate</h2>
+5. Install node dependencies using : <h2>$ npm install</h2>
+6. Update composer dependencies using : <h2>$ composer update</h2>
+7. Edit .env for logentries : <h2>LOGENTRIES_TOKEN={your_logentires_key}</h2>
    [Register to logentries.com](https://logentries.com/)
 8. Address permission issues if any using :
-   ## $ sudo chgrp -R www-data storage bootstrap/cache
-   ## $ sudo chmod -R ug+rwx storage bootstrap/cache
+   <h2>$ sudo chgrp -R www-data storage bootstrap/cache</h2><br>
+   <h2>$ sudo chmod -R ug+rwx storage bootstrap/cache</h2><br>
    https://logentries.com/
-9. Generate key using : ## $ php artisan key:generate
-10. Process scss files : ## $ gulp
-11. Run tests in debug mode using : ## $ phpunit --debug
+9. Generate key using : <h2>$ php artisan key:generate</h2>
+10. Process scss files : <h2>$ gulp</h2>
+11. Run tests in debug mode using : <h2>$ phpunit --debug</h2>
 
 # Usage
 
-1. Run : ## $ php artisan serve
+1. Run : <h2>$ php artisan serve</h2><br>
    You can now browse to http://localhost:8000 directly in your browser
 
    ### Alternatively
 
-   Run with browserSync : ## $ gulp watch
+   Run with browserSync : <h2>$ gulp watch</h2>
 
 2. Register with a valid email address.
 3. Add personnel records using + sign beside the Personnel header.
