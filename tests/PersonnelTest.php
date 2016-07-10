@@ -54,4 +54,10 @@ class PersonnelTest extends TestCase
         $this->assertEquals(302, $post_response->status());
 
     }
+
+    public function testAuthenticationMiddleware(){
+        $this->visit('/')
+            ->click('Personnels')
+            ->see('Login');
+    }
 }
