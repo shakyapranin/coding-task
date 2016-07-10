@@ -18,6 +18,8 @@ class PersonnelController extends Controller
     public function index()
     {
           // TODO : handle listing of personnel records
+
+        return view('personnels.index');
     }
 
     public function store(Request $request)
