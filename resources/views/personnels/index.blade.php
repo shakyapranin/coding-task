@@ -8,60 +8,40 @@
                         Personnels
                     </div>
                     <div class="panel-body">
-                        <table class="table table-striped task-table">
+                        <?php if (empty($csv_array)) {?>
+                        <div class="row">
+                            <div class="col-md-12">No records found.</div>
+                        </div>
+                        <?php } else {?>
 
+                        <?php $csv_header = array_shift($csv_array); ?>
+                        <table class="table table-striped task-table">
                             <!-- Table Headings -->
                             <thead>
-                            <th>Token</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Date of birth</th>
-                            <th>&nbsp;</th>
+                                <?php $token_header = array_shift($csv_header);?>
+                                <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
+                                <?php foreach ($csv_header as $header_item):?>
+                                <th><?php echo ucfirst(trim(str_replace("_", " ", $header_item)));?></th>
+                                <?php endforeach; ?>
+                                <th>Operations</th>
                             </thead>
-
                             <!-- Table Body -->
                             <tbody>
-                            {{--@foreach ($tasks as $task)--}}
-                                {{--<tr>--}}
-                                    {{--<!-- Task Name -->--}}
-                                    {{--<td class="table-text">--}}
-                                        {{--<div>{{ $task->name }}</div>--}}
-                                    {{--</td>--}}
-
-                                    {{--<td>--}}
-                                        {{--<!-- TODO: Delete Button -->--}}
-                                    {{--</td>--}}
-                                {{--</tr>--}}
-                            {{--@endforeach--}}
+                            <?php foreach ($csv_array as $key => $csv_item_array) :?>
+                            <?php $token_header = array_shift($csv_item_array);?>
+                            <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
                             <tr>
-                                <!-- Task Name -->
-                                <td class="table-text">
-                                    <div>asdf</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>asdf</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>asdf</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>asdf</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>asdf</div>
-                                </td>
-                                <td class="table-text">
-                                    <div>asdf</div>
-                                </td>
-
-                                <td>
-                                    <!-- TODO: Delete Button -->
-                                </td>
+                                <?php foreach ($csv_item_array as $csv_item) :?>
+                                <td class="table-text"><div><?php echo $csv_item;?></div></td>
+                                <?php endforeach;?>
+                                <td class="table-text"><div>Delete</div></td><!--Operation buttons-->
                             </tr>
+                            <?php endforeach ;?>
                             </tbody>
                         </table>
+
+                        <?php }// Populate data if array not empty ?>
+
                     </div>
                 </div>
             </div>

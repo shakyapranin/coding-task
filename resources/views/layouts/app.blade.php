@@ -30,6 +30,9 @@
         .error{
             color: #880000;
         }
+        .hidden{
+            display: none;
+        }
     </style>
     @section('styles')
     @show
