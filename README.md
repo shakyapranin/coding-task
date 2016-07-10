@@ -56,4 +56,4 @@ This repository consists of demonstration for the fulfillment of tasks pre state
    Run with browserSync : <h2>$ gulp watch</h2>
 
 2. Register with a valid email address.
-3. Add personnel records using <h2>+</h2> sign beside the Personnel header.
+3. Add personnel records using '+' sign beside the Personnel header.
