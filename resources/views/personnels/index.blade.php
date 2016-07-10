@@ -34,7 +34,16 @@
                                 <?php foreach ($csv_item_array as $csv_item) :?>
                                 <td class="table-text"><div><?php echo $csv_item;?></div></td>
                                 <?php endforeach;?>
-                                <td class="table-text"><div>Delete</div></td><!--Operation buttons-->
+                                <td class="table-text">
+                                    <div>
+                                        <a href="submit" class="btn btn-default">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="submit" class="btn btn-default">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </div>
+                                </td><!--Operation buttons-->
                             </tr>
                             <?php endforeach ;?>
                             </tbody>
