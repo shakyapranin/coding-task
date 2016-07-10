@@ -20,6 +20,13 @@ This repository consists of demonstration for the fulfillment of tasks pre state
    Mbstring PHP Extension
    Tokenizer PHP Extension
 
+# Composer Packages
+
+1.[laravelcollective/html](https://laravelcollective.com/docs/5.2/html)
+    This packages provides access to Html and Form facades for ease of handling forms and html elements.
+2.[laracasts/flash](https://github.com/laracasts/flash)
+    This packages provides access to Flash facades for ease of handling flash messages.
+
 # Installation
 
 1. Clone the repository using : <h2>$ git clone {Repository_url}</h2>
