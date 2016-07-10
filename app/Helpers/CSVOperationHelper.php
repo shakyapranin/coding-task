@@ -2,6 +2,10 @@
 
 namespace App\Helpers;
 
-class CSVOperationHelper {
+class CSVOperationHelper
+{
+    public function toCsvArray($file)
+    {
 
+    }
 }

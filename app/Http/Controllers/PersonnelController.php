@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Personnel;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Validator;
 use Log;
@@ -17,7 +16,14 @@ class PersonnelController extends Controller
     //
     public function index()
     {
-          // TODO : handle listing of personnel records
+        try {
+            if(Storage::disk('csv')->exists(Personnel::$csvfilename)){
+                $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
+                var_dump($personnel_file);
+            }
+        }catch (FileException $e){
+            Log::error("File Exception occurred", $e);
+        }
 
         return view('personnels.index');
     }
@@ -33,7 +39,7 @@ class PersonnelController extends Controller
         // $personnel->keys() returns keys of http request parameters
         foreach ($personnel->keys() as $key) {
             array_push($key_array, $key); // Store keys to use as header in csv files
-            array_push($personnel_data, $personnel->get($key));
+            array_push($personnel_data, '"'. $personnel->get($key). '"');
             $associative_personnel_data[$key] = $personnel->get($key);
         }
 
