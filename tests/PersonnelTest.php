@@ -82,7 +82,7 @@ class PersonnelTest extends TestCase
             ->type('Taylor', 'name')
             ->type('9841953709', 'phone')
             ->type('test@lorem.com', 'email')
-            ->type('Mangal Bazar - 12, Lalitpur, Nepal', 'address')
+            ->type('Mangal Bazar - 12 Lalitpur Nepal', 'address')
             ->type('07/25/2016', 'date_of_birth')
             ->type('Bachelors in information management', 'education_background')
             ->select('email', 'preferred_mode_of_contact')
