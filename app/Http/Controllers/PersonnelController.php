@@ -84,12 +84,12 @@ class PersonnelController extends Controller
                 $modified_file_content = $personnel_file.chr(10).$personnel_data;// Add new record to end.
                 Storage::disk('csv')->put(Personnel::$csvfilename, $modified_file_content);
                 Log::info('Personnel data saved with token : '. $personnel->get('_token'));
+                Flash::message('Personnel data saved!');
 
             } catch (FileException $e) {
                 Log::error("File Exception Occurred", $e);
             }
 
-            Flash::message('Personnel data saved!');
             return redirect()->route('storePersonnel');
         }
 
@@ -116,8 +116,14 @@ class PersonnelController extends Controller
     /**
      *
      */
-    public function destroy()
+    public function destroy( $id )
     {
-        // TODO : handle deletion of personnel record
+        $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
+        $modified_array = CSVOperationFacade::removeArrayRow($personnel_file, $id);
+        $modified_file_content = CSVOperationFacade::toCsvFile($modified_array);
+        Storage::disk('csv')->put(Personnel::$csvfilename, $modified_file_content);
+        Log::info('Record deleted successfully!');
+        Flash::message('Record deleted successfully!');
+        return redirect()->route('listPersonnel');
     }
 }

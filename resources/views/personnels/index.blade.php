@@ -42,12 +42,12 @@
                                 <?php endforeach;?>
                                 <td class="table-text">
                                     <div>
-                                        {{ Form::open(['url' => '/personnel/1', 'method' => 'get', 'class' => 'editForm']) }}
+                                        {{ Form::open(['url' => '/personnel/'.$id_header, 'method' => 'get', 'class' => 'editForm']) }}
                                         <button type="submit" class="btn btn-default">
                                             <i class="fa fa-edit"></i>
                                         </button>
                                         {{ Form::close() }}
-                                        {{ Form::open(['url' => '/personnel/1', 'method' => 'delete', 'class' => 'deleteForm']) }}
+                                        {{ Form::open(['url' => '/personnel/'.$id_header, 'method' => 'delete', 'class' => 'deleteForm']) }}
                                         <button type="submit" class="btn btn-default">
                                             <i class="fa fa-trash-o"></i>
                                         </button>

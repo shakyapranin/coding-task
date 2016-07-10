@@ -24,7 +24,7 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function() {
 
     Route::get('/personnel', 'PersonnelController@create');
     Route::get('/personnel/{id}', ['uses' => 'PersonnelController@single', 'as' => 'viewPersonnel']);
-    Route::get('/personnels', 'PersonnelController@index');
+    Route::get('/personnels', ['uses' => 'PersonnelController@index', 'as' =>'listPersonnel']);
 
     Route::delete('/personnel/{id}', 'PersonnelController@destroy');
 });
