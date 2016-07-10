@@ -68,9 +68,5 @@
     </div>
     @endsection
     @section('script')
-    <script>
-        $('tr[data-href]').on("click", function() {
-            document.location = $(this).data('href');
-        });
-    </script>
+    <script src="{{ URL::asset('js/index.js') }}"></script>
     @endsection
