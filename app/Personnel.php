@@ -21,10 +21,10 @@ class Personnel extends Model
     );
 
     public static $messages = array(
-        
+
         'required' => 'This :attribute is required',
-        'max' => ':attribute must not exceed :max characters',
-        'min' => ':attribute must be at least :min characters'
+        'max' => 'The :attribute must not exceed :max characters',
+        'min' => 'The :attribute must be at least :min characters'
 
     );
 
