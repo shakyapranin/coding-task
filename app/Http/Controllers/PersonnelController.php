@@ -6,6 +6,7 @@ use App\Personnel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Validator;
 use Log;
 use Illuminate\Support\Facades\Storage;
 use Laracasts\Flash\Flash;
@@ -21,15 +22,30 @@ class PersonnelController extends Controller
 
     public function store(Request $request)
     {
+
+
         $personnel = $request->request; // Parameter Bag Object
         $personnel_data = array();
+        $associative_personnel_data = array();
         $key_array = array();
 
         // $personnel->keys() returns keys of http request parameters
         foreach ($personnel->keys() as $key) {
             array_push($key_array, $key); // Store keys to use as header in csv files
             array_push($personnel_data, $personnel->get($key));
+            $associative_personnel_data[$key] = $personnel->get($key);
         }
+
+        // Perform validation before converting into a csv array
+        $validator = Validator::make($associative_personnel_data, Personnel::$rules, Personnel::$messages);
+
+        if ($validator->fails())
+        {
+
+            Flash::error('Validation failed due to : '. $validator->messages());
+            return redirect()->route('storePersonnel');
+        }
+
         $personnel_data = implode(',', $personnel_data);// CSV row of new data
         try {
 
