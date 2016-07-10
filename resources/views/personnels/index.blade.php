@@ -5,7 +5,10 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Personnels
+                        Personnels &nbsp;
+                        <a href="{{ route('storePersonnel') }}" class="btn btn-default">
+                            <i class="fa fa-plus"></i>
+                        </a>
                     </div>
                     <div class="panel-body">
                         <?php if (empty($csv_array)) {?>
@@ -32,7 +35,7 @@
                             <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
                             <tr>
                                 <?php foreach ($csv_item_array as $csv_item) :?>
-                                <td class="table-text"><div><?php echo $csv_item;?></div></td>
+                                <td class="table-text"><div><?php echo str_replace('"', '', $csv_item);?></div></td>
                                 <?php endforeach;?>
                                 <td class="table-text">
                                     <div>
