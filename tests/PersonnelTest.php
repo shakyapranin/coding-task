@@ -28,4 +28,30 @@ class PersonnelTest extends TestCase
             ->see('Welcome');
 
     }
+
+    public function testRoutes()
+    {
+        //Tests for /personnels
+
+        $get_response = $this->call('GET', 'personnels');
+        $this->assertEquals(302, $get_response->status());
+
+        $post_response = $this->call('POST', 'personnels');
+        $this->assertEquals(405, $post_response->status());
+
+        $put_response = $this->call('PUT', 'personnels');
+        $this->assertEquals(405, $put_response->status());
+
+        $delete_response = $this->call('DELETE', 'personnels');
+        $this->assertEquals(405, $delete_response->status());
+
+        // Tests for /personnel
+
+        $get_response = $this->call('GET', 'personnel');
+        $this->assertEquals(302, $get_response->status());
+
+        $post_response = $this->call('POST', 'personnel');
+        $this->assertEquals(302, $post_response->status());
+
+    }
 }
