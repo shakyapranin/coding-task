@@ -11,6 +11,7 @@
                         </a>
                     </div>
                     <div class="panel-body">
+                        @include('flash::message')
                         <?php if (empty($csv_array)) {?>
                         <div class="row">
                             <div class="col-md-12">No records found.</div>
