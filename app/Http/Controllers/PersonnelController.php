@@ -114,7 +114,7 @@ class PersonnelController extends Controller
     }
 
     /**
-     *
+     * @return mixed
      */
     public function destroy( $id )
     {

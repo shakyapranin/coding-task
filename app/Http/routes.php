@@ -20,6 +20,7 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => '', 'middleware' => ['auth']], function() {
+
     Route::post('/personnel', ['uses' => 'PersonnelController@store', 'as' => 'storePersonnel']);
 
     Route::get('/personnel', 'PersonnelController@create');
@@ -27,4 +28,5 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function() {
     Route::get('/personnels', ['uses' => 'PersonnelController@index', 'as' =>'listPersonnel']);
 
     Route::delete('/personnel/{id}', 'PersonnelController@destroy');
+    
 });
