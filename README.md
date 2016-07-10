@@ -23,10 +23,10 @@ This repository consists of demonstration for the fulfillment of tasks pre state
 
 # Composer Packages
 
-1.[laravelcollective/html](https://laravelcollective.com/docs/5.2/html)
-    This packages provides access to Html and Form facades for ease of handling forms and html elements.
-2.[laracasts/flash](https://github.com/laracasts/flash)
-    This packages provides access to Flash facades for ease of handling flash messages.
+1. [laravelcollective/html](https://laravelcollective.com/docs/5.2/html)<br>
+    This packages provides access to Html and Form facades for ease of handling forms and html elements.<br>
+2. [laracasts/flash](https://github.com/laracasts/flash)<br>
+    This packages provides access to Flash facades for ease of handling flash messages.<br>
 
 # Installation
 
@@ -56,4 +56,4 @@ This repository consists of demonstration for the fulfillment of tasks pre state
    Run with browserSync : <h2>$ gulp watch</h2>
 
 2. Register with a valid email address.
-3. Add personnel records using + sign beside the Personnel header.
+3. Add personnel records using <h2>+</h2> sign beside the Personnel header.
