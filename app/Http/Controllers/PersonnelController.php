@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\CSVOperationFacade;
+use App\Helpers\CSVOperationHelper;
 use App\Personnel;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -14,12 +16,15 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class PersonnelController extends Controller
 {
     //
+    /**
+     * @return mixed
+     */
     public function index()
     {
         try {
             if(Storage::disk('csv')->exists(Personnel::$csvfilename)){
                 $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
-                var_dump($personnel_file);
+                CSVOperationFacade::toCsvArray($personnel_file);
             }
         }catch (FileException $e){
             Log::error("File Exception occurred", $e);
@@ -28,6 +33,10 @@ class PersonnelController extends Controller
         return view('personnels.index');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function store(Request $request)
     {
 
@@ -81,17 +90,26 @@ class PersonnelController extends Controller
         // TODO : handle storing personnel records to database if needed
     }
 
+    /**
+     * @return mixed
+     */
     public function create()
     {
         $personnel = new Personnel();
         return view('personnels/create')->with(['personnel'=>$personnel]);
     }
 
+    /**
+     *
+     */
     public function single()
     {
         // TODO : handle retrieval of individual personnel records
     }
 
+    /**
+     *
+     */
     public function destroy()
     {
         // TODO : handle deletion of personnel record
