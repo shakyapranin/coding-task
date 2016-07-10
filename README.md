@@ -14,11 +14,12 @@ This repository consists of demonstration for the fulfillment of tasks pre state
    <h2>Windows</h2>
    [WAMP](http://www.wampserver.com/en/)
    [XAMP](https://www.apachefriends.org/index.html)
-5. PHP >= 5.5.9
-   OpenSSL PHP Extension
-   PDO PHP Extension
-   Mbstring PHP Extension
-   Tokenizer PHP Extension
+5. <h2>PHP Extension</h2>
+   PHP >= 5.5.9<br>
+   OpenSSL PHP Extension<br>
+   PDO PHP Extension<br>
+   Mbstring PHP Extension<br>
+   Tokenizer PHP Extension<br>
 
 # Composer Packages
 
