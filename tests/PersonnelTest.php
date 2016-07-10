@@ -5,7 +5,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 class PersonnelTest extends TestCase
 {
 
-    //use WithoutMiddleware;
+    use WithoutMiddleware;
 
     /**
      * A basic test example.
@@ -22,6 +22,9 @@ class PersonnelTest extends TestCase
             ->seePageIs('/personnels');
     }
 
+    /**
+     * Test welcome message
+     */
     public function testWelcomeMessage()
     {
         $this->visit('/')
@@ -29,6 +32,9 @@ class PersonnelTest extends TestCase
 
     }
 
+    /**
+     * Test application routes
+     */
     public function testRoutes()
     {
         //Tests for /personnels
@@ -55,9 +61,33 @@ class PersonnelTest extends TestCase
 
     }
 
-    public function testAuthenticationMiddleware(){
+    /**
+     * Verify working of auth middleware
+     */
+    public function testAuthenticationMiddleware()
+    {
         $this->visit('/')
             ->click('Personnels')
             ->see('Login');
     }
+
+    /**
+     * @group form
+     * Test to check Personnel form
+     */
+    public function testPersonnelForm()
+    {
+        $this->withoutMiddleware(); // Test forms excluding auth middleware
+        $this->visit('/personnel')
+            ->type('Taylor', 'name')
+            ->type('9841953709', 'phone')
+            ->type('test@lorem.com', 'email')
+            ->type('Mangal Bazar - 12, Lalitpur, Nepal', 'address')
+            ->type('07/25/2016', 'date_of_birth')
+            ->type('Bachelors in information management', 'education_background')
+            ->select('email', 'preferred_mode_of_contact')
+            ->press('Save')
+            ->seePageIs('/personnel');
+    }
+    
 }
