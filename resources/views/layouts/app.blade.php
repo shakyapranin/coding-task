@@ -36,6 +36,12 @@
         .link{
             cursor: pointer;
         }
+        .editForm{
+            display: inline-block!important;
+        }
+        .deleteForm{
+            display: inline-block!important;
+        }
     </style>
     @section('styles')
     @show
