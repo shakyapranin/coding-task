@@ -1,0 +1,28 @@
+box: php
+
+build:
+  steps:
+    - script:
+        name: Install dependencies
+        code: |
+          composer install
+
+    - script:
+        name: Create env file
+        code: |-
+          cp .env.example .env
+
+    - script:
+        name: Generate application key
+        code: |-
+          php artisan key:generate
+
+    - script:
+        name: Migrate tables
+        code: |-
+        php artisan migrate
+
+    - script:
+        name: Run phpunit
+        code: |-
+          phpunit
