@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Facades\CSVOperationFacade;
-use App\Helpers\CSVOperationHelper;
 use App\Personnel;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,16 +20,17 @@ class PersonnelController extends Controller
      */
     public function index()
     {
+        $csv_array = array();
         try {
             if(Storage::disk('csv')->exists(Personnel::$csvfilename)){
                 $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
-                CSVOperationFacade::toCsvArray($personnel_file);
+                $csv_array = CSVOperationFacade::toCsvArray($personnel_file);
             }
         }catch (FileException $e){
             Log::error("File Exception occurred", $e);
         }
 
-        return view('personnels.index');
+        return view('personnels.index')->with(['csv_array'=>$csv_array]);
     }
 
     /**
