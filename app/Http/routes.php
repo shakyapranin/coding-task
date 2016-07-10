@@ -23,7 +23,7 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function() {
     Route::post('/personnel', ['uses' => 'PersonnelController@store', 'as' => 'storePersonnel']);
 
     Route::get('/personnel', 'PersonnelController@create');
-    Route::get('/personnel/{id}', 'PersonnelController@single');
+    Route::get('/personnel/{id}', ['uses' => 'PersonnelController@single', 'as' => 'viewPersonnel']);
     Route::get('/personnels', 'PersonnelController@index');
 
     Route::delete('/personnels/{id}', 'PersonnelController@destroy');

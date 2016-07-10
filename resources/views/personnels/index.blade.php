@@ -22,18 +22,18 @@
                         <table class="table table-striped task-table">
                             <!-- Table Headings -->
                             <thead>
-                                <?php $token_header = array_shift($csv_header);?>
-                                <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
-                                <?php foreach ($csv_header as $header_item):?>
-                                <th><?php echo ucfirst(trim(str_replace("_", " ", $header_item)));?></th>
-                                <?php endforeach; ?>
-                                <th>Operations</th>
+                            <?php $token_header = array_shift($csv_header);?>
+                            <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
+                            <?php foreach ($csv_header as $header_item):?>
+                            <th><?php echo ucfirst(trim(str_replace("_", " ", $header_item)));?></th>
+                            <?php endforeach; ?>
+                            <th>Operations</th>
                             </thead>
                             <!-- Table Body -->
                             <tbody>
                             <?php foreach ($csv_array as $key => $csv_item_array) :?>
                             <?php $token_header = array_shift($csv_item_array);?>
-                            <tr>
+                            <tr class="link" data-href="{{ route('viewPersonnel', ['_token' => str_replace('"', '', $token_header)]) }}">
                                 <td class="hidden"><?php echo $token_header;?></td><!--Hide token headers-->
                                 <?php  foreach ($csv_item_array as $csv_item) :?>
                                 <td class="table-text">
@@ -62,4 +62,11 @@
             </div>
         </div>
     </div>
+    @endsection
+    @section('script')
+    <script>
+        $('tr[data-href]').on("click", function() {
+            document.location = $(this).data('href');
+        });
+    </script>
     @endsection

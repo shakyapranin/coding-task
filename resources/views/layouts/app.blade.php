@@ -33,6 +33,9 @@
         .hidden{
             display: none;
         }
+        .link{
+            cursor: pointer;
+        }
     </style>
     @section('styles')
     @show
