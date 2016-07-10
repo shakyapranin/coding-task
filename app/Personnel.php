@@ -13,7 +13,7 @@ class Personnel extends Model
 
         'name' => 'required',
         'gender' => 'required',
-        'phone' => 'required|max:50|numeric|min:7',
+        'phone' => 'required|numeric|min:7',
         'email' => 'required|email',
         'address' => 'max:254',
         'date_of_birth' => 'date',
