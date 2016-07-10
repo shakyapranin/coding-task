@@ -102,39 +102,5 @@
     @parent
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js'></script>
-    <script>
-        $(document).ready(function(){
-            $("#personnel-form").validate({
-                rules: {
-                    phone: {
-                        isValidPhoneNumber: true,
-                        minlength: 7,
-                        maxlength: 15,
-                    },
-                    address: {
-                        maxlength: 254,
-                    },
-                },
-                submitHandler: function(form) {
-                    form.submit();
-                }
-            });
-            $("#date_of_birth").datepicker({
-                changeMonth: true,
-                changeYear: true,
-                yearRange: '1972:2011'
-            });
-
-            $.validator.addMethod('isValidPhoneNumber', checkValidPhoneNumber, 'Phone number is invalid.');
-            function checkValidPhoneNumber(value, element){
-                var filter = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
-                if (filter.test(value)) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-        });
-    </script>
+    <script src="{{ URL::asset('js/custom_validation.js') }}">
 @endsection
