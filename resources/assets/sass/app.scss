@@ -1,2 +1,27 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+body {
+  font-family: 'Lato';
+}
 
+.fa-btn {
+  margin-right: 6px;
+}
+
+.top-buffer{
+  margin-top: 20px;
+}
+.error{
+  color: #880000;
+}
+.hidden{
+  display: none;
+}
+.link{
+  cursor: pointer;
+}
+.editForm{
+  display: inline-block!important;
+}
+.deleteForm{
+  display: inline-block!important;
+}
