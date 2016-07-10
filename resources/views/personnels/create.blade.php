@@ -111,7 +111,9 @@
                         minlength: 7,
                         maxlength: 15,
                     },
-
+                    address: {
+                        maxlength: 254,
+                    },
                 },
                 submitHandler: function(form) {
                     form.submit();
