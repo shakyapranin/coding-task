@@ -81,8 +81,8 @@ class PersonnelController extends Controller
                 }
 
                 $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
-                $modified_file_content = $personnel_file.chr(10).$personnel_data;// Add new record to end.
-                Storage::disk('csv')->put(Personnel::$csvfilename, $modified_file_content);
+                $modified_file_content = trim($personnel_file).chr(10).$personnel_data;// Add new record to end.
+                Storage::disk('csv')->put(Personnel::$csvfilename, trim($modified_file_content));
                 Log::info('Personnel data saved with token : '. $personnel->get('_token'));
                 Flash::message('Personnel data saved!');
 

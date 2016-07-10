@@ -2,9 +2,6 @@
 
 namespace App\Helpers;
 
-use Illuminate\Support\Facades\Storage;
-use Laracasts\Flash\Flash;
-use Log;
 class CSVOperationHelper
 {
     /**
@@ -39,6 +36,10 @@ class CSVOperationHelper
         return $file_array;
     }
 
+    /**
+     * @param $array
+     * @return string
+     */
     public function toCsvFile($array)
     {
         $modified_file_content = '';
