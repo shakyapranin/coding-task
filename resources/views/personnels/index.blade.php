@@ -32,10 +32,12 @@
                             <tbody>
                             <?php foreach ($csv_array as $key => $csv_item_array) :?>
                             <?php $token_header = array_shift($csv_item_array);?>
-                            <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
                             <tr>
-                                <?php foreach ($csv_item_array as $csv_item) :?>
-                                <td class="table-text"><div><?php echo str_replace('"', '', $csv_item);?></div></td>
+                                <td class="hidden"><?php echo $token_header;?></td><!--Hide token headers-->
+                                <?php  foreach ($csv_item_array as $csv_item) :?>
+                                <td class="table-text">
+                                    <div><?php echo str_replace('"', '', $csv_item);?></div>
+                                </td>
                                 <?php endforeach;?>
                                 <td class="table-text">
                                     <div>
@@ -59,4 +61,4 @@
             </div>
         </div>
     </div>
-@endsection
+    @endsection
