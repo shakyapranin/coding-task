@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use App\Helpers\CSVOperationHelper;
 use Illuminate\Support\ServiceProvider;
-use Monolog\Handler\LogEntriesHandler;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +25,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        app()->bind('csvOperationHandler', function() {
+            return new CSVOperationHelper();
+        });
     }
 }

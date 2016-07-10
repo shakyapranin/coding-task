@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\CSVOperationFacade;
 use App\Personnel;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Validator;
 use Log;
@@ -15,11 +15,28 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 class PersonnelController extends Controller
 {
     //
+    /**
+     * @return mixed
+     */
     public function index()
     {
-          // TODO : handle listing of personnel records
+        $csv_array = array();
+        try {
+            if(Storage::disk('csv')->exists(Personnel::$csvfilename)){
+                $personnel_file = Storage::disk('csv')->get(Personnel::$csvfilename);
+                $csv_array = CSVOperationFacade::toCsvArray($personnel_file);
+            }
+        }catch (FileException $e){
+            Log::error("File Exception occurred", $e);
+        }
+
+        return view('personnels.index')->with(['csv_array'=>$csv_array]);
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function store(Request $request)
     {
 
@@ -28,10 +45,16 @@ class PersonnelController extends Controller
         $associative_personnel_data = array();
         $key_array = array();
 
+        // Addition of unique id key for indexing
+        array_push($key_array, 'id');
+        array_push($personnel_data, time());
+
         // $personnel->keys() returns keys of http request parameters
         foreach ($personnel->keys() as $key) {
+            if($key=='_token')
+                continue; // Escape form token for storing
             array_push($key_array, $key); // Store keys to use as header in csv files
-            array_push($personnel_data, $personnel->get($key));
+            array_push($personnel_data, '"'. $personnel->get($key). '"');
             $associative_personnel_data[$key] = $personnel->get($key);
         }
 
@@ -73,17 +96,26 @@ class PersonnelController extends Controller
         // TODO : handle storing personnel records to database if needed
     }
 
+    /**
+     * @return mixed
+     */
     public function create()
     {
         $personnel = new Personnel();
         return view('personnels/create')->with(['personnel'=>$personnel]);
     }
 
+    /**
+     *
+     */
     public function single()
     {
         // TODO : handle retrieval of individual personnel records
     }
 
+    /**
+     *
+     */
     public function destroy()
     {
         // TODO : handle deletion of personnel record

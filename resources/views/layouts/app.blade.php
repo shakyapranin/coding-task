@@ -30,6 +30,12 @@
         .error{
             color: #880000;
         }
+        .hidden{
+            display: none;
+        }
+        .link{
+            cursor: pointer;
+        }
     </style>
     @section('styles')
     @show
@@ -57,6 +63,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/personnels') }}">Personnels</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
