@@ -17,4 +17,12 @@ class CSVOperationHelper
         }
         return $array;
     }
+
+
+    public function removeArrayRow($file, $array)
+    {
+        $file_array = $this->toCsvArray($file);
+        var_dump($file_array);
+        var_dump($array);
+    }
 }

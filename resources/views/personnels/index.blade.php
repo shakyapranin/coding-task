@@ -42,12 +42,16 @@
                                 <?php endforeach;?>
                                 <td class="table-text">
                                     <div>
-                                        <a href="submit" class="btn btn-default">
+                                        {{ Form::open(['url' => '/personnel/1', 'method' => 'get', 'class' => 'editForm']) }}
+                                        <button type="submit" class="btn btn-default">
                                             <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="submit" class="btn btn-default">
+                                        </button>
+                                        {{ Form::close() }}
+                                        {{ Form::open(['url' => '/personnel/1', 'method' => 'delete', 'class' => 'deleteForm']) }}
+                                        <button type="submit" class="btn btn-default">
                                             <i class="fa fa-trash-o"></i>
-                                        </a>
+                                        </button>
+                                        {{ Form::close() }}
                                     </div>
                                 </td><!--Operation buttons-->
                             </tr>

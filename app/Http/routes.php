@@ -26,5 +26,5 @@ Route::group(['prefix' => '', 'middleware' => ['auth']], function() {
     Route::get('/personnel/{id}', ['uses' => 'PersonnelController@single', 'as' => 'viewPersonnel']);
     Route::get('/personnels', 'PersonnelController@index');
 
-    Route::delete('/personnels/{id}', 'PersonnelController@destroy');
+    Route::delete('/personnel/{id}', 'PersonnelController@destroy');
 });
