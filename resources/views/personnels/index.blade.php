@@ -22,8 +22,8 @@
                         <table class="table table-striped task-table">
                             <!-- Table Headings -->
                             <thead>
-                            <?php $token_header = array_shift($csv_header);?>
-                            <th class="hidden"><?php echo $token_header;?></th><!--Hide token headers-->
+                            <?php $id_header = array_shift($csv_header);?>
+                            <th class="hidden"><?php echo $id_header;?></th><!--Hide token headers-->
                             <?php foreach ($csv_header as $header_item):?>
                             <th><?php echo ucfirst(trim(str_replace("_", " ", $header_item)));?></th>
                             <?php endforeach; ?>
@@ -32,9 +32,9 @@
                             <!-- Table Body -->
                             <tbody>
                             <?php foreach ($csv_array as $key => $csv_item_array) :?>
-                            <?php $token_header = array_shift($csv_item_array);?>
-                            <tr class="link" data-href="{{ route('viewPersonnel', ['_token' => str_replace('"', '', $token_header)]) }}">
-                                <td class="hidden"><?php echo $token_header;?></td><!--Hide token headers-->
+                            <?php $id_header = array_shift($csv_item_array);?>
+                            <tr class="link" data-href="{{ route('viewPersonnel', ['_token' => str_replace('"', '', $id_header)]) }}">
+                                <td class="hidden"><?php echo $id_header;?></td><!--Hide token headers-->
                                 <?php  foreach ($csv_item_array as $csv_item) :?>
                                 <td class="table-text">
                                     <div><?php echo str_replace('"', '', $csv_item);?></div>

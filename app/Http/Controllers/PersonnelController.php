@@ -45,8 +45,14 @@ class PersonnelController extends Controller
         $associative_personnel_data = array();
         $key_array = array();
 
+        // Addition of unique id key for indexing
+        array_push($key_array, 'id');
+        array_push($personnel_data, time());
+
         // $personnel->keys() returns keys of http request parameters
         foreach ($personnel->keys() as $key) {
+            if($key=='_token')
+                continue; // Escape form token for storing
             array_push($key_array, $key); // Store keys to use as header in csv files
             array_push($personnel_data, '"'. $personnel->get($key). '"');
             $associative_personnel_data[$key] = $personnel->get($key);
