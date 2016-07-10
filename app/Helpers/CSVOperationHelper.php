@@ -13,7 +13,7 @@ class CSVOperationHelper
      */
     public function toCsvArray($file)
     {
-        $lines = explode(PHP_EOL, $file);
+        $lines = explode(PHP_EOL, trim($file));
         $array = array();
         foreach ($lines as $line) {
              $array[] = explode(',', $line);
